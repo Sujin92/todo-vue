@@ -18,8 +18,9 @@
 
 <script>
 import ErrorModal from '@/components/ErrorModal.vue'
+import firebase from 'firebase'
 
-export default {
+export default {   
     data() {
         return {
             todoItem : '',

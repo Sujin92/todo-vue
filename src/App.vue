@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <TodoHeader/>
-    <TodoInput v-on:addTodo="addTodo"></TodoInput>
-    <TodoList v-bind:propsdata="todoItems" @removeTodo="removeTodo"></TodoList>
-    <TodoFooter v-on:removeAll="clearAll"></TodoFooter>
+    <TodoInput @addTodo="addTodo"></TodoInput>
+    <TodoList :propsdata="todoItems" @removeTodo="removeTodo"></TodoList>
+    <TodoFooter @removeAll="clearAll"></TodoFooter>
   </div>
 </template>
 
@@ -12,8 +12,14 @@ import TodoHeader from '@/components/TodoHeader.vue'
 import TodoInput from '@/components/TodoInput.vue'
 import TodoList from '@/components/TodoList.vue'
 import TodoFooter from '@/components/TodoFooter.vue'
+import {db} from '@/config/db';
 
 export default {
+  firebase: function() {
+        return {
+          items : db.ref('items')
+        }
+      },
   data() {
     return {
       todoItems: []
@@ -28,15 +34,18 @@ export default {
     },
   methods: {
     addTodo(todoItem) {
-      localStorage.setItem(todoItem, todoItem);
+      this.$firebaseRefs.items.push(todoItem)
+      // localStorage.setItem(todoItem, todoItem);
       this.todoItems.push(todoItem);
     },
     clearAll() {
-      localStorage.clear();
+      //localStorage.clear();
+      this.$firebaseRefs.clearAll;
       this.todoItems = [];
     },
     removeTodo(todoItem, index) {
            localStorage.removeItem(todoItem);
+          //  this.$firebaseRefs.items.child(key).remove()
            this.todoItems.splice(index, 1);
     }
   },
