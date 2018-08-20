@@ -15,6 +15,12 @@ import TodoFooter from '@/components/TodoFooter.vue'
 import {db} from '@/config/db';
 
 export default {
+  components: {
+    TodoHeader,
+    TodoInput,
+    TodoList,
+    TodoFooter
+  },
   firebase: function() {
         return {
           items : db.ref('items')
@@ -26,34 +32,30 @@ export default {
     }
   },
   created() {
-        if (localStorage.length > 0) {
-            for (var i=0; i <localStorage.length; i++) {
-                this.todoItems.push(localStorage.key(i))
+        // if (localStorage.length > 0) {
+            for (var i=0; i <this.todoItems.length; i++) {
+                this.todoItems.push(this.todoItems[i])
             }
-        }
+        // }
     },
   methods: {
     addTodo(todoItem) {
-      this.$firebaseRefs.items.push(todoItem)
+      // this.$firebaseRefs.items.push(todoItem);
       // localStorage.setItem(todoItem, todoItem);
       this.todoItems.push(todoItem);
     },
     clearAll() {
       //localStorage.clear();
-      this.$firebaseRefs.clearAll;
+      //this.$firebaseRefs.clearAll;
       this.todoItems = [];
     },
     removeTodo(todoItem, index) {
-           localStorage.removeItem(todoItem);
+           console.log(index)
+          //  localStorage.removeItem(todoItem);
           //  this.$firebaseRefs.items.child(key).remove()
            this.todoItems.splice(index, 1);
+
     }
-  },
-  components: {
-    'TodoHeader' : TodoHeader,
-    'TodoInput'  : TodoInput,
-    'TodoList'   : TodoList,
-    'TodoFooter' : TodoFooter
   }
 }
 </script>
