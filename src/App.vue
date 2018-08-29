@@ -32,27 +32,24 @@ export default {
     }
   },
   created() {
-        // if (localStorage.length > 0) {
-            for (var i=0; i <this.todoItems.length; i++) {
-                this.todoItems.push(this.todoItems[i])
-            }
-        // }
+    console.log(this.items);
+    if (this.items.length > 0) {
+        for (var i=0; i <this.items.length; i++) {
+            this.todoItems.push(this.items[i]['.value'])
+        }
+    }
     },
   methods: {
     addTodo(todoItem) {
       // this.$firebaseRefs.items.push(todoItem);
-      // localStorage.setItem(todoItem, todoItem);
       this.todoItems.push(todoItem);
     },
     clearAll() {
-      //localStorage.clear();
-      //this.$firebaseRefs.clearAll;
+      this.items = [];
       this.todoItems = [];
     },
     removeTodo(todoItem, index) {
-           console.log(index)
-          //  localStorage.removeItem(todoItem);
-          //  this.$firebaseRefs.items.child(key).remove()
+           this.items.splice(index, 1);
            this.todoItems.splice(index, 1);
 
     }
