@@ -22,36 +22,34 @@ export default {
     TodoFooter
   },
   firebase: function() {
-        return {
-          items : db.ref('items')
-        }
-      },
+    return {
+      items : db.ref('items')
+    }
+  },
   data() {
     return {
       todoItems: []
     }
   },
   created() {
-    console.log(this.items);
     if (this.items.length > 0) {
-        for (var i=0; i <this.items.length; i++) {
-            this.todoItems.push(this.items[i]['.value'])
-        }
+      for (var i=0; i < this.items.length; i++) {
+        this.todoItems.push(this.items[i])          
+      }
     }
-    },
+  },
   methods: {
     addTodo(todoItem) {
-      // this.$firebaseRefs.items.push(todoItem);
+      this.$firebaseRefs.items.push(todoItem);
       this.todoItems.push(todoItem);
     },
     clearAll() {
-      this.items = [];
+      this.$firebaseRefs.items.remove();
       this.todoItems = [];
     },
-    removeTodo(todoItem, index) {
-           this.items.splice(index, 1);
-           this.todoItems.splice(index, 1);
-
+    removeTodo(index, key) {
+      this.$firebaseRefs.items.child(key).remove();
+      this.todoItems.splice(index, 1);
     }
   }
 }
