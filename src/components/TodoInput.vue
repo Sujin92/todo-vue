@@ -1,19 +1,14 @@
-<template>
-    <div class="input-box shadow">
-        <input type="text" v-model="todoItem" placeholder="할 일을 입력하세요."
-        v-on:keyup.enter="addTodo">
-        <span class="addContainer" v-on:click="addTodo">
-            <i class="addBtn fas fa-plus" aria-hidden="true"></i>
-        </span>
-
-        <modal v-if="showModal" @close="showModal = false">
-            <h3 slot="header">WARNING</h3>
-            <span slot="footer" @click="showModal = false">
-                할 일을 입력하세요.
-                <i class="closeModalBtn fas fa-times" aria-hidden="true"></i>
-            </span>
-        </modal>
-    </div>  
+<template lang="pug">
+    div(class="input-box shadow")
+        input(type="text" v-model="todoItem" placeholder="할 일을 입력하세요."
+        v-on:keyup.enter="addTodo")
+        span(class="addContainer" v-on:click="addTodo")
+            i(class="addBtn fas fa-plus" aria-hidden="true")
+        modal(name="modal" v-if="showModal" @close="showModal = false")
+            h3(slot="header") WARNING
+            span(slot="footer" @click="showModal = false")
+             | 할 일을 입력하세요.
+            i(class="closeModalBtn fas fa-times" aria-hidden="true")
 </template>
 
 <script>

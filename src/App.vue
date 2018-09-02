@@ -1,10 +1,9 @@
-<template>
-  <div id="app">
-    <TodoHeader/>
-    <TodoInput @addTodo="addTodo"></TodoInput>
-    <TodoList :propsdata="todoItems" @removeTodo="removeTodo"></TodoList>
-    <TodoFooter @removeAll="clearAll"></TodoFooter>
-  </div>
+<template lang="pug">
+  div(id="app")
+    TodoHeader
+    TodoInput(@addTodo="addTodo")
+    TodoList(:propsdata="todoItems" @removeTodo="removeTodo")
+    TodoFooter(@removeAll="clearAll")
 </template>
 
 <script>
@@ -28,14 +27,18 @@ export default {
   },
   data() {
     return {
-      todoItems: []
+      todoItems: [],
+      item: {
+        type: '',
+        value: ''
+      }
     }
   },
   created() {
+    console.log('aaa');
+
     if (this.items.length > 0) {
-      for (var i=0; i < this.items.length; i++) {
-        this.todoItems.push(this.items[i])          
-      }
+      this.todoItems = this.items
     }
   },
   methods: {
@@ -56,6 +59,7 @@ export default {
 </script>
 
 <style>
+
   body {
     text-align: center;
     background-color: #F6F6F8;
