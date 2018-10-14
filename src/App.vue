@@ -35,8 +35,6 @@ export default {
     }
   },
   created() {
-    console.log('aaa');
-
     if (this.items.length > 0) {
       this.todoItems = this.items
     }
@@ -58,23 +56,15 @@ export default {
 }
 </script>
 
-<style>
-
-  body {
-    text-align: center;
-    background-color: #F6F6F8;
-  }
-  
-  input {
-    border-style: groove;
-    width: 200px;
-  }
-
-  button {
-    border-style: groove;
-  }
-
-  .shadow {
+<style lang="sass">
+  body
+    text-align: center
+    background-color: #e7e7e7
+  input
+    border-style: groove
+    width: 200px
+  button
+    border-style: groove
+  .shadow
     box-shadow: 5px 10px 10px rgba(0,0,0, 0.03)
-  }
 </style>

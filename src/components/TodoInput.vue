@@ -39,33 +39,25 @@ export default {
 }
 </script>
 
-<style scoped>
-    input:focus {
-        outline: none;
-    }
-    
-    .input-box {
-        background: white;
-        height: 50px;
-        line-height: 50px;
-        border-radius: 5px;
-    }
-
-    .input-box input {
-        border-style: none;
-        font-size: 2rem;
-    }
-
-    .addContainer {
-        float: right;
-        background: linear-gradient(to right, #6478FB, #8763FB);
-        display: block;
-        width: 5rem;
-        border-radius: 0 5px 5px 0;
-    }
-
-    .addBtn {
-        color: white;
-        vertical-align: middle;
-    }
+<style lang="sass" scoped>
+    input:focus
+        outline: none
+    .input-box
+        background: white
+        height: 52px
+        line-height: 52px
+        border-radius: 20px
+        border: solid 1px black
+    .input-box input
+        border-style: none
+        font-size: 2rem
+    .addContainer
+        float: right
+        background: linear-gradient(to right, #6478FB, #8763FB)
+        display: block
+        width: 50px
+        border-radius: 0 5px 5px 0
+    .addBtn
+        color: white
+        vertical-align: middle
 </style>
