@@ -1,8 +1,8 @@
 <template lang="pug">
-    div(class="input-box shadow")
-        input(type="text" v-model="todoItem" placeholder="할 일을 입력하세요."
+    div(class="input__box__wrapper")
+        input(class="input-box" type="text" v-model="todoItem" placeholder="할 일을 입력하세요."
         v-on:keyup.enter="addTodo")
-        span(class="addContainer" v-on:click="addTodo")
+        span(class="add-container" v-on:click="addTodo")
             i(class="addBtn fas fa-plus" aria-hidden="true")
         modal(name="modal" v-if="showModal" @close="showModal = false")
             h3(slot="header") WARNING
@@ -42,22 +42,29 @@ export default {
 <style lang="sass" scoped>
     input:focus
         outline: none
-    .input-box
-        background: white
-        height: 52px
-        line-height: 52px
-        border-radius: 20px
-        border: solid 1px black
-    .input-box input
-        border-style: none
-        font-size: 2rem
-    .addContainer
-        float: right
-        background: linear-gradient(to right, #6478FB, #8763FB)
-        display: block
-        width: 50px
-        border-radius: 0 5px 5px 0
-    .addBtn
-        color: white
-        vertical-align: middle
+    .input__box__wrapper
+        position: relative
+        .input-box
+            width: 100%
+            font-size: 1.8rem
+            background: white
+            height: 52px
+            line-height: 52px
+            border-radius: 20px
+            border: solid 1px black
+            text-indent: 20px
+        .add-container
+            position: absolute
+            top: 8px
+            bottom: 14px
+            right: 10px
+            background: linear-gradient(to right, #6478FB, #8763FB)
+            display: flex
+            align-items: center
+            justify-content: space-around
+            width: 35px
+            height: 35px
+            border-radius: 50%
+        .addBtn
+            color: white
 </style>

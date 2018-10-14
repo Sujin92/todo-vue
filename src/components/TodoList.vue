@@ -2,7 +2,7 @@
     <section>
         <transition-group name="list" tag="ul">
             <li v-for="(todoItem, index) in propsdata" 
-            :key="todoItem['.key']" class="shadow">
+            :key="index" class="shadow">
                 <i class="checkBtn fas fa-check" aria-hidden="true"></i>
                 {{ todoItem['.value'] }}
                 <span class="removeBtn" type="button" @click="removeTodo(index, todoItem['.key'])">

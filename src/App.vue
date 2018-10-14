@@ -27,18 +27,24 @@ export default {
   },
   data() {
     return {
-      todoItems: [],
+      todoItems: [
+        { key: 1, value: "aaa"},
+        { key: 2, value: "aaa"},
+        { key: 3, value: "aaa"},
+        { key: 4, value: "aaa"},
+        { key: 5, value: "aaa"}
+      ],
       item: {
         type: '',
         value: ''
       }
     }
   },
-  created() {
-    if (this.items.length > 0) {
-      this.todoItems = this.items
-    }
-  },
+  // created() {
+  //   if (this.items.length > 0) {
+  //     this.todoItems = this.items
+  //   }
+  // },
   methods: {
     addTodo(todoItem) {
       this.$firebaseRefs.items.push(todoItem);
@@ -49,7 +55,7 @@ export default {
       this.todoItems = [];
     },
     removeTodo(index, key) {
-      this.$firebaseRefs.items.child(key).remove();
+      // this.$firebaseRefs.items.child(key).remove();
       this.todoItems.splice(index, 1);
     }
   }

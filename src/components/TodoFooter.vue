@@ -1,11 +1,12 @@
-<template>
-    <div class="clearAll">
-        <span class="clearAllBtn" @click="clearAll">Clear All</span>    
-    </div>    
+<template lang="pug">
+    div(class="clear__all__wrapper")
+        span(class="clear__btn" @click="clearAll")
+            i(class="clearBtn fas fa-trash-alt" aria-hidden="true")
 </template>
 
 <script>
 export default {
+    name: 'todo-footer',
     methods: {
         clearAll() {
             this.$emit('removeAll');
@@ -14,18 +15,19 @@ export default {
 }
 </script>
 
-<style scoped>
-    .clearAll {
-        width: 8.5rem;
-        height: 50px;
-        line-height: 50px;
-        background-color: white;
-        border-radius: 5px;
-        margin: 0 auto;
-    }
-
-    .clearAllBtn {
-        color: #e20303;
-        display: black;
-    }
+<style lang="sass" scoped>
+    .clear__all__wrapper
+        display: flex
+        align-items: center
+        justify-content: space-around
+        .clear__btn
+            width: 40px
+            height: 40px
+            display: flex
+            align-items: center
+            justify-content: space-around
+            background: linear-gradient(to right, #6478FB, #8763FB)
+            border-radius: 50%
+            .clearBtn
+                color: white
 </style>
