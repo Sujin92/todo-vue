@@ -21,8 +21,8 @@ export default {
         align-items: center
         justify-content: space-around
         .clear__btn
-            width: 40px
-            height: 40px
+            width: 70px
+            height: 70px
             display: flex
             align-items: center
             justify-content: space-around

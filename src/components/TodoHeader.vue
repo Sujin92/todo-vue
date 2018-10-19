@@ -1,6 +1,8 @@
 <template lang="pug">
-    header
+    div(class="header")
+        p(class="text")
         h1(class="title") All Tasks
+        p(class="edit") 편집
 </template>
 
 <script>
@@ -10,8 +12,20 @@ export default {
 </script>
 
 <style lang="sass">
+.header
+    display: flex
+    flex-direction: row
+    align-items: center
+    justify-content: space-between
+    margin-top: 24px
+    padding: 0 30px
     .title
         color: rgba(#000, 0.6)
-        font-weight: 900
-        margin: 2.5rem 0 1.8rem
+        font-size: 3rem
+        font-weight: bold
+        margin: 0
+    .edit
+        margin: 0
+        font-size: 1.4rem
+        color: rgba(#000, 0.6)
 </style>
