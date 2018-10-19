@@ -12,8 +12,8 @@ export default {
     name: 'todo-list',
     props: ['propsdata'],
     methods: {
-        removeTodo(index, key) {
-           this.$emit('removeTodo', index, key);
+        removeTodo() {
+           this.$emit('removeTodo');
         }
     }
 }

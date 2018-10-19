@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import TodoHeader from '@/components/TodoHeader.vue'
-import TodoInput from '@/components/TodoInput.vue'
-import TodoList from '@/components/TodoList.vue'
-import TodoFooter from '@/components/TodoFooter.vue'
+import TodoHeader from '@/components/TodoHeader'
+import TodoInput from '@/components/TodoInput'
+import TodoList from '@/components/TodoList'
+import TodoFooter from '@/components/TodoFooter'
 import {db} from '@/config/db';
 
 export default {

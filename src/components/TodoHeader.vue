@@ -2,12 +2,17 @@
     div(class="header")
         p(class="text")
         h1(class="title") All Tasks
-        p(class="edit") 편집
+        p(class="edit" @click="edit") 편집
 </template>
 
 <script>
 export default {
-    name: 'todo-header'
+    name: 'todo-header',
+    methods: {
+        edit () {
+            this.$emit('edit')
+        }
+    }
 }
 </script>
 
