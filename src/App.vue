@@ -80,7 +80,7 @@ export default {
       overflow-y: hidden
       height: 100%
     .footer__wrapper
-      width: 100%
+      width: 95%
       position: fixed
       top: 400px
       box-sizing: border-box
