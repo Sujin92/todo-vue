@@ -1,11 +1,11 @@
 <template lang="pug">
   div(id="app")
     TodoHeader
-    TodoInput(@addTodo="addTodo")
+    TodoInput(@addTodo="addTodo" v-if="showInput")
     div(class="list__wrapper")
       TodoList(:propsdata="todoItems" @removeTodo="removeTodo")
     div(class="footer__wrapper")
-      TodoFooter(@removeAll="clearAll")
+      TodoFooter(@click="clickHandler")
 </template>
 
 <script>
@@ -27,24 +27,23 @@ export default {
       items : db.ref('items')
     }
   },
-  data() {
-    return {
-      todoItems: [
-        { key: 1, value: "수연님이랑 놀기"},
-        { key: 2, value: "수연님 바보"},
-        { key: 3, value: "수연님 바보"},
-        { key: 4, value: "수연님 바보"},
-        { key: 5, value: "수연님 바보"},
-        { key: 6, value: "현종님 괴롭히기"},
-        { key: 7, value: "정민님 안마봉 훔쳐 도망가기"},
-        { key: 8, value: "나눈 바보다"}
-      ],
-      item: {
-        type: '',
-        value: ''
-      }
-    }
-  },
+  data: () => ({
+    todoItems: [
+      { key: 1, value: "공부하기"},
+      { key: 1, value: "공부하기"},
+      { key: 1, value: "공부하기"},
+      { key: 1, value: "공부하기"},
+      { key: 1, value: "공부하기"},
+      { key: 1, value: "공부하기"},
+      { key: 1, value: "공부하기"},
+      { key: 1, value: "공부하기"}
+    ],
+    item: {
+      type: '',
+      value: ''
+    },
+    showInput: false
+  }),
   // created() {
   //   if (this.items.length > 0) {
   //     this.todoItems = this.items
@@ -55,9 +54,9 @@ export default {
       this.$firebaseRefs.items.push(todoItem);
       this.todoItems.push(todoItem);
     },
-    clearAll() {
-      this.$firebaseRefs.items.remove();
-      this.todoItems = [];
+    clickHandler () {
+      console.log('aaa')
+      this.showInput = !this.showInput
     },
     removeTodo(index, key) {
       // this.$firebaseRefs.items.child(key).remove();

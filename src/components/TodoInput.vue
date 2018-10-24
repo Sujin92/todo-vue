@@ -37,7 +37,7 @@ export default {
 <style lang="sass" scoped>
     .input__box__wrapper
         position: relative
-        padding: 16px
+        padding: 0 16px 16px 16px
         .input__box
             width: 100%
             font-size: 1.6rem
@@ -57,7 +57,7 @@ export default {
             width: 35px
             height: 35px
             position: absolute
-            top: 24px
+            top: 8px
             bottom: 14px
             right: 30px
             background: linear-gradient(to right, #6478FB, #8763FB)

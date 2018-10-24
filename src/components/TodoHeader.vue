@@ -23,7 +23,7 @@ export default {
     align-items: center
     justify-content: space-between
     margin-top: 24px
-    padding: 0 30px
+    padding: 0 30px 16px 30px
     .title
         color: rgba(#000, 0.6)
         font-size: 3rem
