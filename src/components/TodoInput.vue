@@ -1,7 +1,6 @@
 <template lang="pug">
     div(class="input__box__wrapper")
-        input(class="input__box" type="text" v-model="todoItem" placeholder="할 일을 입력하세요."
-        @keyup.enter="addTodo")
+        input(class="input__box" type="text" v-model="todoItem" placeholder="할 일을 입력하세요.")
         span(class="add-container" @click="addTodo")
             i(class="addBtn fas fa-plus" aria-hidden="true")
 </template>
@@ -47,9 +46,11 @@ export default {
             border-radius: 20px
             border: solid 1px #e1e1e1
             text-indent: 20px
-            color: rgba(#000, 0.6)
+            color: rgba(#000, 0.87)
             &:focus
                 outline: none
+            &::placeholder
+                color: rgba(#000, 0.38)
         .add-container
             display: flex
             align-items: center

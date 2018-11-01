@@ -22,44 +22,29 @@ export default {
     TodoList,
     TodoFooter
   },
-  firebase: function() {
-    return {
-      items : db.ref('items')
-    }
-  },
   data: () => ({
     todoItems: [
       { key: 1, value: "공부하기"},
-      { key: 1, value: "공부하기"},
-      { key: 1, value: "공부하기"},
-      { key: 1, value: "공부하기"},
-      { key: 1, value: "공부하기"},
-      { key: 1, value: "공부하기"},
-      { key: 1, value: "공부하기"},
-      { key: 1, value: "공부하기"}
+      { key: 2, value: "공부하기"},
+      { key: 3, value: "공부하기"},
+      { key: 4, value: "공부하기"},
+      { key: 5, value: "공부하기"},
+      { key: 6, value: "공부하기"},
+      { key: 7, value: "공부하기"},
+      { key: 8, value: "공부하기"}
     ],
-    item: {
-      type: '',
-      value: ''
-    },
     showInput: false
   }),
-  // created() {
-  //   if (this.items.length > 0) {
-  //     this.todoItems = this.items
-  //   }
-  // },
   methods: {
-    addTodo(todoItem) {
-      this.$firebaseRefs.items.push(todoItem);
-      this.todoItems.push(todoItem);
+    addTodo (todoItem) {
+      const obj = { key: this.todoItems.length + 1, value: todoItem}
+      this.todoItems.push(obj);
+      this.showInput = false
     },
     clickHandler () {
-      console.log('aaa')
       this.showInput = !this.showInput
     },
-    removeTodo(index, key) {
-      // this.$firebaseRefs.items.child(key).remove();
+    removeTodo (index, key) {
       this.todoItems.splice(index, 1);
     }
   }
