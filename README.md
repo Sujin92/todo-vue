@@ -1,7 +1,9 @@
 # todo-vue practice
 
-> Do it! Vue.js에 있는 예제를 기반으로 firebase를 사용하였다. 추후에 디자인 수정 및 추가적으로 todo, done list로 분리하여 조회할 예정 
-
+- Do it! Vue.js 책을 기반으로 todo vue application을 연습삼아 개발 중이다.
+  - pug / sass를 사용
+  - firebase 이용해서 todo data를 생성, 삭제, 조회할 예정
+  - html/css 작업 중
 ## Build Setup
 
 ``` bash
